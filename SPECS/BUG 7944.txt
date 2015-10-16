@@ -41,8 +41,8 @@ VERIFY/REPRODUCTION SPECS :
    - Accessed the ISCSI Volume.
    - Added some data to the volume.
    - Checking TSM details in "tenants" and "dataset" section in:
-     * Source Node VSM - /cf/conf/config.xml before migration.
-	 * Destination Node VSM - /cf/conf/config.xml after migration.
+     * Source Node - /cf/conf/config.xml before migration.
+	 * Destination Node - /cf/conf/config.xml after migration.
    - Scheduled Migration from Primary TSM.
    - Stopped cbdpd service in Source Node VSM during migration.
    - Migration failed.
