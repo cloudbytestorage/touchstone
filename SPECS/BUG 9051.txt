@@ -19,7 +19,7 @@ ENVIRONMENT SPECS :
    
    
 VERIFY/REPRODUCTION SPECS :
------------------
+-------------------------
 
 1. Check the following:
    - Checking if cbdpd is running in Source Node VSM or not.
