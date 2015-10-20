@@ -1,6 +1,5 @@
-===================
 # ENVIRONMENT SPECS :
-===================
+# -----------------
 
 * Checking the Setup Environment.
    - Checking the ElastiCenter version.

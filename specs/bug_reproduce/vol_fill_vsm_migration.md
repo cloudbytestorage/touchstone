@@ -1,6 +1,5 @@
-=====================
-# BUG REPRODUCE SPECS :
-=====================
+# VOL_FILL_VSM_MIGRATION SPECS :
+# ----------------------------
 
 * Run the following for reproducing:
    - Created TSM on Source Node.
