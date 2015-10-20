@@ -1,14 +1,16 @@
 # Resize ext4 partition after increasing the iscsi volume size
 
-Steps:
 
+## Initial Steps
 - First increase the volume size of the ISCSI volume from storage side.
 - login to linux client and do the following steps.
 
+## Note
 - Note: sdd is the disk shown in "fdisk -l" after iscsi lun discovery.
 - Note: /mnt/demo is the mountpoint for sdd.
 - Note: 10.1.10.71 is the VSM IP address (i.e. jail IP address)
 
+## Steps to Resize
 - df -h
 - mount
 - umount /mnt/demo
