@@ -84,19 +84,19 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - http://www.lingua-systems.com/unit-testing/
 - https://github.com/spockframework/spock
 
-### Shell scripting using groovy
+#### Shell scripting using groovy
 
 - #!/usr/bin/env groovy
 - Say bye to cumbersome bash scripts (smile)
 - https://github.com/aestasit/sshoogr
 
-### Modular & file/folder structure & coding standards for shell scripts
+#### Modular & file/folder structure & coding standards for shell scripts
 
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats
 - https://github.com/aaronroyer/shy/blob/master/test/shy.bats
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh
 
-### Management tool for shell
+#### Management tool for shell
 
 - https://github.com/aaronroyer/shy 
 - https://blog.engineyard.com/2014/bats-test-command-line-tools
