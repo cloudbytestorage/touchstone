@@ -1,5 +1,4 @@
 # VERIFY CBDPD BKPD :
-# -----------------
 
 * Check the following:
    - Checking if cbdpd is running in Source Node VSM or not.
