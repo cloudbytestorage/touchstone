@@ -12,19 +12,21 @@
 - failure -> bug is reproduced or regression_fail
 
 #### functions for verify
-- filter_active_cbdpd_by_ip
-- filter_cbdpd_instances_by_ip
-- filter_cbdpd_instances_by_src_dset
-- filter_cbdpd_instances_by_ip_and_src_dset
-- filter_bkp_ip_by_instance_id
-- filter_bkp_dest_by_instance_id
-- is_ping_to_bkp_ip
-- compare_snaps_at_cbdpd_bkpd
-- get_status_of_cbdpd_instance
-- is_cbdpd_instance_lagging
-- is_cbdpd_instance_run_pending
-- is_cbdpd_instance_failed
-- is_cbdpd_instance_uptodate
-- filter_jail_by_ip
-- filter_active_bkpd_by_bkp_ip
-- filter_cbdpd_error_log_by_ip
+- tt cbdpd status get --vsmip
+- tt cbdpd jobs get --vsmip
+- tt cbdpd jobs get --sdset --vsmip
+- tt cbdpd bkp_ip get --jobid --vsmip
+- tt cbdpd bkp_dest get --jobid --vsmip
+- tt cbdpd ping_bkp_ip get --jobid --vsmip
+- tt cbdpd compare_snaps get --jobid --vsmip
+- tt cbdpd job_status get --jobid --vsmip
+- tt cbdpd is_job_lagging get --jobid --vsmip
+- tt cbdpd is_job_pending get --jobid --vsmip
+- tt cbdpd is_job_failed get --jobid --vsmip
+- tt cbdpd is_job_uptodate get --jobid --vsmip
+- tt vsm jid get --vsmip
+- tt bkpd status get --bkpip
+- tt cbdpd error_log get --jobid --vsmip
+- tt cbdpd error_log get --vsmip
+- tt bkpd error_log get
+- 
