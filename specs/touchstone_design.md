@@ -29,4 +29,3 @@
 - tt cbdpd error_log get --jobid --vsmip
 - tt cbdpd error_log get --vsmip
 - tt bkpd error_log get
-- 
