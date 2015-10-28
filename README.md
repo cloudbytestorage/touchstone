@@ -3,8 +3,9 @@
 - All possible way to test 'ElastiStor OS'
 - ElastiStor OS is a FreeBSD OS with REST APIs that understand JAIL & ZFS
 - The REST API part of ElastiStor is known as ElastiCenter
+- This will consist of sub-projects that have specific responsibilities.
 
-## Need for a Test Automation
+### Need for a Test Automation
 
 - It has been desired to achieve test automation so that a developer can make continuous changes to the code base without impacting any existing feature.
 - It has also been felt that test automation should be simple enough for anyone to add/modify the test cases without spending too much of time.
@@ -14,7 +15,7 @@
 - At the same time it is desired to roll out these test cases in a CI server for the entire build process. It will be pain to have separate test automation for build.
 - To summarize, it will be good to have test automation that can be easy to develop, easy to run, & easy to set up in different environments.
  
-## What kind of Test Automation should we implement ?
+### What kind of Test Automation should we implement ?
 
 Let me quote an email from OpenStack forums: 
 "If a method is conceivably testable with unit tests (without over relying on mock), that is preferable. Failing that, functional tests are the way to go. The general idea is to test bottom up: Lots of unit tests, fewer functional tests, fewer API/integration/fullstack tests, ... it is difficult to test the agent with unit tests effectively, which is why I encourage developers to test via functional, mock-less tests, ..."
@@ -47,13 +48,13 @@ I'm finding that most time spent in a TDD style development model is actually co
 Avid readers will definitely want a proof of this approach and I guess I have one. 
 - "During development of OpenStack cinder driver for CloudByte storage, I had to write unit test code whose LOC was more than that of the actual driver code. I guess I got a couple of bugs from this unit test code. However, most of critical/important bugs were found during the automated functional testing process (i.e. during run of OpenStack cinder tempest tests). The CI which runs these Tempest on every commit made to cinder project gets me few bugs occasionally. If I try to analyze the reason, I would say use of sublime text as my IDE, pep8 & flake8 linting tools helped me fix good amount of bugs while I was coding. To summarize, if we are able to use the right tools, we can write unit tests that matter & write exhaustive unit tests to get a 100% code coverage."
 
-## Evolution of Test Automation:
+### Evolution of Test Automation:
 
 - It will be great if the test automation can eventually be used to inject faults & check if the system is resilient.
 - The fault injection test cases can be based out of the source code design as well as based on faults in the overall environment.
 - It is assumed that dedicated engineering thought process needs to go behind designing & building fault injection test cases.
  
-## Functional & Integration Test Automation
+### Functional & Integration Test Automation
 
 - Since a typical management layer is exposed via the REST layer, we can get code coverage of ~70% by utilizing the REST layer.
 - Given the 80:20 rule, and above justification, we should be spending most of our efforts into functional testing.
@@ -64,7 +65,7 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - Not only the Developer but also the Business Analyst, Quality Analyst, Infra Engineer, Support Engineer etc. should be able to create a automated functional test case with ease.
 
  
-## Fault Injection Testing & Unit Testing the ElastiCenter
+### Fault Injection Testing & Unit Testing the ElastiCenter
 
 - While testing the storage via REST layer seems to solve 70% of use cases, we need to think of an alternative design that can test the rest 30%
 - Spock is assumed to meet the fault injection requirements w.r.t ElastiCenter that is Java based.
@@ -75,7 +76,20 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - Ability to build jars that contains the Spock specs. These jars will be deployed in a running EC & test cases would be invoked from a CLI.
 - One is not limited to use Spock. One may think of using various Mock libraries to meet one's goal.
 
-## References
+### touchston's sub-projects
+- touchstone
+	- DSL wrapper over CLI
+- resto
+	- DSL wrapper over REST API
+- automaton
+	- TAP based automation that takes into account above
+- 3rd party libraries
+	- https://github.com/openzfs/openzfs/tree/master/usr/src/test
+	- openstack temptest suite
+	- vmware certification
+	- 
+
+### References
 
 - https://github.com/vlucas/frisby
 - https://github.com/jeffbski/bench-rest
@@ -83,20 +97,21 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - https://wiki.freebsd.org/SummerOfCodeIdeas#TEST-o-steron_for_FreeBSD_.28node.js.2FLua.29
 - http://www.lingua-systems.com/unit-testing/
 - https://github.com/spockframework/spock
+- https://github.com/openzfs/openzfs/tree/master/usr/src/test
 
-#### Shell scripting using groovy
+##### Shell scripting using groovy
 
 - #!/usr/bin/env groovy
 - Say bye to cumbersome bash scripts (smile)
 - https://github.com/aestasit/sshoogr
 
-#### Modular & file/folder structure & coding standards for shell scripts
+##### Modular & file/folder structure & coding standards for shell scripts
 
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats
 - https://github.com/aaronroyer/shy/blob/master/test/shy.bats
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh
 
-#### Management tool for shell
+##### Management tool for shell
 
 - https://github.com/aaronroyer/shy 
 - https://blog.engineyard.com/2014/bats-test-command-line-tools
