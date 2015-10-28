@@ -12,6 +12,7 @@
 - failure -> bug is reproduced or regression_fail
 
 #### functions for verify
+- NOTE - --apiver is an optional param that can be provided to all commands
 - tt cbdpd status get --vsmip
 - tt cbdpd jobs get --vsmip
 - tt cbdpd jobs get --sdset --vsmip
