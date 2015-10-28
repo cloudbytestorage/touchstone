@@ -1,4 +1,4 @@
-# touchstone
+# TOUCHSTONE
 
 - All possible way to test 'ElastiStor OS'
 - ElastiStor OS is a FreeBSD OS with REST APIs that understand JAIL & ZFS
@@ -76,7 +76,7 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - Ability to build jars that contains the Spock specs. These jars will be deployed in a running EC & test cases would be invoked from a CLI.
 - One is not limited to use Spock. One may think of using various Mock libraries to meet one's goal.
 
-### touchston's sub-projects
+### Touchston's Sub-Projects
 - touchstone
 	- DSL wrapper over CLI
 - resto
@@ -87,7 +87,6 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 	- https://github.com/openzfs/openzfs/tree/master/usr/src/test
 	- openstack temptest suite
 	- vmware certification
-	- 
 
 ### References
 
@@ -99,19 +98,19 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - https://github.com/spockframework/spock
 - https://github.com/openzfs/openzfs/tree/master/usr/src/test
 
-##### Shell scripting using groovy
+##### Shell Scripting Using Groovy
 
 - #!/usr/bin/env groovy
 - Say bye to cumbersome bash scripts (smile)
 - https://github.com/aestasit/sshoogr
 
-##### Modular & file/folder structure & coding standards for shell scripts
+##### Modular & file/folder Structure & Coding Standards for Shell Scripts
 
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats
 - https://github.com/aaronroyer/shy/blob/master/test/shy.bats
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh
 
-##### Management tool for shell
+##### Management Tool for Shell
 
 - https://github.com/aaronroyer/shy 
 - https://blog.engineyard.com/2014/bats-test-command-line-tools
