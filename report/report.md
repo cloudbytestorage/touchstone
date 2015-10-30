@@ -6,3 +6,4 @@
 - ability to push the reports to github pages if these reports can be shared
 - or spawn a light http process to display the reports in a browser
   - this will be done in the environment where reports is being run
+- py based
