@@ -109,6 +109,7 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats
 - https://github.com/aaronroyer/shy/blob/master/test/shy.bats
 - https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh
+- http://www.doublecloud.org/2015/05/vmware-esxi-esxcli-command-a-quick-tutorial/
 
 ##### Management Tool for Shell
 
