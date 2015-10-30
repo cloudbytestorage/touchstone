@@ -1,7 +1,12 @@
-## design
+### tt functions
 
-#### functions of touchstone's touchstone project:
-- NOTE: --apiver is an optional param that can be provided to all commands
+#### version
+- version needs to be taken care of at below layers:
+  - within touchstone
+  - within each sub project of touchstone
+  - within each namespace of a touchstone sub project
+
+#### functions of tt > elastistor :
 - tt cbdpd status get --vsmip
 - tt cbdpd jobs get --vsmip
 - tt cbdpd jobs get --sdset 
