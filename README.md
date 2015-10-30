@@ -116,3 +116,4 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - https://github.com/aaronroyer/shy 
 - https://blog.engineyard.com/2014/bats-test-command-line-tools
 - https://github.com/sstephenson/bats
+- http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay
