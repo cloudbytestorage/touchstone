@@ -1,6 +1,6 @@
 ### elastistor
 
-- is a category under tt sub project of touchstone
+- is a namespace under tt sub project of touchstone
 - elastistor is a Freebsd 9.3 OS
   - The versions will vary. 
   - However touchstone project shall ensure an effective means for taking care of versions.
