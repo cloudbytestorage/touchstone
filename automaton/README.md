@@ -4,3 +4,4 @@
 - will call the cli of other sub projects of touchstone
 - will be a one-to-one mapping w.r.t specs
   - automaton will be the code for the thoery that is specs
+- py based
