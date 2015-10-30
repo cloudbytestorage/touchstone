@@ -14,3 +14,4 @@ A test case can fall under below phases:
 #### Phases to Touchstone Sub-Project Mapping
 - touchstone will have multiple sub-projects
 - a particular phase of a test can belong to any sub-project or multiple sub-projects
+- triggering a testcase will be done via automaton sub-project
