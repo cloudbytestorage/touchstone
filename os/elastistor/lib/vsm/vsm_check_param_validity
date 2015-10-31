@@ -1,0 +1,20 @@
+#!/bin/sh
+
+_check_parameter_validity(){
+    local parameter="$3"
+    
+    if [ "$parameter" = "" ]; then
+        echo "Parameter missing : --vsmip"
+        break
+    fi
+
+    if [ "$parameter" = "--vsmip" ]; then
+       _get_property "$@"
+    else
+        echo "Parameter entered is not correct: ${parameter}"
+        echo "Use '--vsmip' as parameter"
+        break
+    fi
+}
+
+
