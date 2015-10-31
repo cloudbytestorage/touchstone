@@ -1,5 +1,0 @@
-#!/bin/sh
-
-rm -rf /usr/local/sbin/tt
-rm -rf /usr/local/lib/tt
-rm -rf /usr/local/man/man8/tt.8.gz
