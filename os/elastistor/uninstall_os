@@ -1,5 +1,0 @@
-#!/bin/sh
-
-rm -rf /usr/local/sbin/os
-rm -rf /usr/local/lib/os
-rm -rf /usr/local/man/man8/os.8.gz
