@@ -1,4 +1,4 @@
-### tt functions
+### os functions
 
 #### version
 - version needs to be taken care of at below layers:
