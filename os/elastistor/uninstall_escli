@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm -rf /usr/local/sbin/escli
+rm -rf /usr/local/lib/escli
+rm -rf /usr/local/man/man8/escli.8.gz

@@ -3,11 +3,11 @@
 __help_text() {
 cat << 'EOT'
 NAME
-  os
+  escli
 
 SYNOPSIS
-  os help
-  os version | --version
+  escli help
+  escli version | --version
 
 DESCRIPTION
   

@@ -5,12 +5,12 @@
 PREFIX?= /usr/local
 
 BINDIR=$(PREFIX)/sbin
-FILESDIR=$(PREFIX)/lib/os
+FILESDIR=$(PREFIX)/lib/escli
 MANDIR=$(PREFIX)/man/man8
 MKDIR=mkdir
 COPY=cp
 
-SCRIPTS=os
+SCRIPTS=escli
 SCRIPTSDIR=${PREFIX}/BINDIR
 MAN=$(SCRIPTS).8
 
