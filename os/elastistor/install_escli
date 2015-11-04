@@ -1,0 +1,34 @@
+#!/bin/sh
+
+root_dir="$(pwd)"
+lib_dir='lib/escli'
+man_dir='man/man8'
+bin_dir='sbin'
+
+echo 
+
+mkdir -p /$lib_dir
+cp -r $root_dir/escli /$bin_dir/
+chmod 777 /$bin_dir/escli
+cp -r $root_dir/lib/* /$lib_dir
+cp -r $root_dir/escli.8.gz /$man_dir/
+
+echo "**** Installation of ESCLI in ELASTISTOR NODE is SUCCESSFULL ****"
+
+echo
+
+read -p "Want to install ESCLI on NODE VSM's too(y/n)?" choice
+if [ "$choice" = "y" -o "$choice" = "Y" ]; then
+	echo 
+	tenant_dir='/tenants'
+	subs=`ls $tenant_dir`
+
+	for i in $subs; do
+		cp -r "/sbin/escli" "$tenant_dir/$i/sbin"
+		mkdir -p "$tenant_dir/$i/lib/escli"
+		cp -r "/lib/escli/" "$tenant_dir/$i/lib/escli" 
+		cp -r "/man" "$tenant_dir/$i"
+	done
+	echo "**** Installation of ESCLI in ELASTISTOR NODE VSM'S is SUCCESSFULL ****"
+	echo
+fi

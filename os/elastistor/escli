@@ -30,13 +30,13 @@ unset LANG
 PATH=${PATH}:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 
 if [ "${1}" = "--version" -o "${1}" = "version" ] ; then
-    echo "ESCLI 1.0.0 (2016/10/22)"
+    echo "ESCLI 1.0.0 (2015/11/03)"
     exit 0
 fi
 
 # Check if libs are available
-if [ -e "/usr/local/lib/escli" ] ; then
-    LIB="/usr/local/lib/escli"
+if [ -e "/lib/escli" ] ; then
+    LIB="/lib/escli"
 else
     echo "ERROR: missing libraries"
     exit 1
@@ -50,11 +50,6 @@ fi
 . "${LIB}/vsm/vsm_get_path"
 . "${LIB}/vsm/vsm_check_param_validity"
 . "${LIB}/vsm/vsm_get_property"
-
-if [ -z "$1" ] ; then
-    __usage
-    exit 0
-fi
 
 if [ "$1" == "help" ] ; then
     __help

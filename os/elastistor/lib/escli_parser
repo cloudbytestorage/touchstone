@@ -10,6 +10,9 @@ __parse_cmd () {
             vsm)        __vsm "$@"
                         exit
                         ;;
+            cbdpd)      __cbdpd "$@"
+                        exit
+                        ;;
         esac
         shift
     done
