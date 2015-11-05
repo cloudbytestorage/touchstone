@@ -1,0 +1,11 @@
+#!/bin/sh
+
+_cbdpd_check(){
+	result_arr=$(escli vsm jid list)
+
+	if [ "$result_arr" != '' ]; then
+		echo "$result_arr"	 
+	fi 
+}
+
+

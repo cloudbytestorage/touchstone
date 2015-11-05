@@ -1,0 +1,14 @@
+#!/bin/sh
+
+_vsm_jid_list(){
+    local all_jids="$(jls -N -h jid | grep -v -x jid)"
+
+    printf "   JID\n"
+    
+    for jid in $all_jids; 
+    do
+    	printf "     $jid\n"
+    done	
+}
+
+

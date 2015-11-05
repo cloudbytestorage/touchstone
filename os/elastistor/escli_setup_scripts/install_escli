@@ -1,6 +1,6 @@
 #!/bin/sh
 
-root_dir="$(pwd)"
+root_dir="/touchstone/os/elastistor"
 lib_dir='lib/escli'
 man_dir='man/man8'
 bin_dir='sbin'

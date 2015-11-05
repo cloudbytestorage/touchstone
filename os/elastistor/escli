@@ -50,6 +50,11 @@ fi
 . "${LIB}/vsm/vsm_get_path"
 . "${LIB}/vsm/vsm_check_param_validity"
 . "${LIB}/vsm/vsm_get_property"
+. "${LIB}/vsm/vsm_jid_list"
+. "${LIB}/vsm/vsm_help"
+. "${LIB}/cbdpd/cbdpd_help"
+. "${LIB}/cbdpd/cbdpd_parser"
+. "${LIB}/cbdpd/cbdpd_check"
 
 if [ "$1" == "help" ] ; then
     __help
