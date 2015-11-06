@@ -1,6 +1,6 @@
 #!/bin/sh
 
-_get_property(){
+__vsm_get_property(){
     local property="$1"
     local ip_add="$4"
 

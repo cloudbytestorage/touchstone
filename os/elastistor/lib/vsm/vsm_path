@@ -1,9 +1,9 @@
 #!/bin/sh
 
-_vsm_path(){
+__vsm_path(){
     local action="$2"
     if [ "$action" = "get" ]; then
-        _check_parameter_validity "$@"
+        __vsm_check_parameter_validity "$@"
     else
         echo "The following action can't be performed : ${action}"
     fi

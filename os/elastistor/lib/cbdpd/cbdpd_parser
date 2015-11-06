@@ -3,10 +3,10 @@
 __cbdpd(){
     while [ $# -gt 0 ] ; do
         case "$1" in
-            check)      _cbdpd_check "$@"
+            check)      __cbdpd_check "$@"
                         exit
                         ;;
-              job)		_cbdpd_job "$@"
+           status)		__cbdpd_status "$@"
                         exit
                         ;;
         esac

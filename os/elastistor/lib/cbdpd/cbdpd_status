@@ -1,0 +1,24 @@
+#!/bin/sh
+
+__cbdpd_status(){
+	local argument jids cmd_output vsm_ip
+
+	argument="$2"
+	jids="$3"
+	vsm_ip="$(jls -j $jids -h ip4.addr | grep -v "ip4.addr")"
+
+	if [ "$argument" != "--jid" ]; then
+		echo "Parameter entered is not --jid"
+		echo "USE INSTEAD : escli cbdpd status --jid <jid>"
+	else
+		cmd_output="$(jexec $jids ps aux | grep cbdpd | grep -v grep | awk '{print $11}')"
+		
+		if [ "$cmd_output" = "/sbin/cbdpd" ]; then
+			echo "CBDPD running in JAIL_ID:$jids VSM_IP:$vsm_ip."
+		else
+			echo "CBDPD not running in JAIL_ID:$jids VSM_IP:$vsm_ip."
+		fi
+	fi	
+}
+
+

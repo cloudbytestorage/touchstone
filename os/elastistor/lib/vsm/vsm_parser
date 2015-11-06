@@ -3,10 +3,10 @@
 __vsm(){
     while [ $# -gt 0 ] ; do
         case "$1" in
-            jid)       _vsm_jid "$@"
+            jid)       __vsm_jid "$@"
                         exit
                         ;;
-            path)      _vsm_path "$@"
+            path)      __vsm_path "$@"
                         exit
                         ;;
         esac

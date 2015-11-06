@@ -1,6 +1,6 @@
 #!/bin/sh
 
-_check_parameter_validity(){
+__vsm_check_parameter_validity(){
     local parameter="$3"
     
     if [ "$parameter" = "" ]; then
@@ -9,7 +9,7 @@ _check_parameter_validity(){
     fi
 
     if [ "$parameter" = "--vsmip" ]; then
-       _get_property "$@"
+       __vsm_get_property "$@"
     else
         echo "Parameter entered is not correct: ${parameter}"
         echo "Use '--vsmip' as parameter"

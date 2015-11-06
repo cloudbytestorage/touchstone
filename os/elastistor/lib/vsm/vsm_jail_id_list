@@ -1,0 +1,18 @@
+#!/bin/sh
+
+__vsm_jail_id_list(){
+    local all_jids="$(jls -N -h jid | grep -v jid)"
+
+    if [ "$all_jids" = "" ]; then
+    	echo "No JAILS present, create VSMs first!!!"
+    	exit 1
+    else
+    	printf "   JID\n"
+       	for jid in $all_jids; 
+    	do
+    		printf "     $jid\n"
+    	done 	
+    fi
+}
+
+

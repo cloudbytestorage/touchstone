@@ -1,12 +1,12 @@
 #!/bin/sh
 
-_vsm_jid(){
+__vsm_jid(){
 	while [ $# -gt 0 ] ; do
         case "$2" in
-            get)       _check_parameter_validity "$@"
+            get)       __vsm_check_parameter_validity "$@"
                         exit
                         ;;
-            list)      _vsm_jid_list
+            list)      __vsm_jid_list
                         exit
                         ;;
         esac
