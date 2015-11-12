@@ -97,6 +97,8 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - http://www.lingua-systems.com/unit-testing/
 - https://github.com/spockframework/spock
 - https://github.com/openzfs/openzfs/tree/master/usr/src/test
+- http://www.slideshare.net/araujobsd/functional-and-scale-performance-tests-using-zopkio
+- https://github.com/linkedin/Zopkio
 
 ##### Shell Scripting Using Groovy
 
