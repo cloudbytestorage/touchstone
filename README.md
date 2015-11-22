@@ -99,6 +99,7 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - https://github.com/openzfs/openzfs/tree/master/usr/src/test
 - http://www.slideshare.net/araujobsd/functional-and-scale-performance-tests-using-zopkio
 - https://github.com/linkedin/Zopkio
+- https://github.com/zfsonlinux/zfs-auto-snapshot/blob/master/src/zfs-auto-snapshot.sh
 
 ##### Shell Scripting Using Groovy
 
