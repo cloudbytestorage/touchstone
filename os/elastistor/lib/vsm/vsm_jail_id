@@ -1,12 +1,9 @@
 #!/bin/sh
 
-__vsm_jid(){
+__vsm_jail_id(){
 	while [ $# -gt 0 ] ; do
         case "$2" in
             get)       __vsm_check_parameter_validity "$@"
-                        exit
-                        ;;
-            list)      __vsm_jid_list
                         exit
                         ;;
         esac

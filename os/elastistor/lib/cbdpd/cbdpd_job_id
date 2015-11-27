@@ -1,0 +1,17 @@
+#!/bin/sh
+
+__cbdpd_job_id(){
+	while [ $# -gt 0 ] ; do
+        case "$1" in
+             list)      __cbdpd_job_id_list "$@"
+                        exit
+                        ;;
+        path_list)      __cbdpd_job_id_path_list "$@"
+                        exit
+                        ;;   
+        esac
+        shift
+    done
+}
+
+

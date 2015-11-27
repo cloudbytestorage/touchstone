@@ -11,7 +11,7 @@ __vsm_get_property(){
     fi
 
     if [ "$property" = "jid" ]; then
-        local jail_id="$(jls -N | grep -i "${ip_add}" | awk '{print $1}')"
+        local jail_id="$(jls -N | grep -i "${ip_add}" | grep -v grep | awk '{print $1}')"
         if [ "$jail_id" = "" ]; then
             echo "VSM IP entered is incorrect!!!"
             break
@@ -21,7 +21,7 @@ __vsm_get_property(){
     fi
 
     if [ "$property" = "path" ]; then
-            local vsm_path="$(jls -N | grep -i "${ip_add}" | awk '{print $4}')"
+            local vsm_path="$(jls -N | grep -i "${ip_add}" | grep -v grep | awk '{print $4}')"
             if [ "$vsm_path" = "" ]; then
                 echo "VSM IP entered is incorrect!!!"
                 break

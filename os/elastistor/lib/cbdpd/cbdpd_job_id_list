@@ -1,0 +1,13 @@
+#!/bin/sh
+
+__cbdpd_job_id_list(){
+	if [ "$2" != "--vsmid"]; then
+		echo "Wrong parameters eneterd!!!"
+		echo "Usage: escli cbdpd jobid list --vsmid <vsmid>"
+	fi
+
+	jobid_list_from_cbdpctl=__cbdpd_job_id_list_by_cbdpctl "$@"
+    jobid_list_from_config=__cbdpd_job_id_list_by_config "$@"
+}
+
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+__cbdpd_job_id_path_list_by_cbdpctl(){
+	local job_id_path_list vsm_id param
+
+	vsm_id="$3"
+	param="Job"
+
+	job_id_path_list="$(jexec $vsm_id cbdpctl -c list | grep $param2 | grep -v grep | cut -d ':' -f 2)"
+	
+}
+
+

@@ -9,6 +9,9 @@ __vsm(){
             path)      __vsm_path "$@"
                         exit
                         ;;
+            list)      __vsm_list "$@"
+                        exit
+                        ;;
         esac
         shift
     done
