@@ -45,7 +45,7 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 
 #### Lets think about the issues faced to implement above strategies:
 + Brittle unit tests
-+ No end on writing unit tests
++ No end to writing unit tests
 
 #### Solutions the mitigate these issues:
 + Wide variety of tools make writing unit testing a breeze.
@@ -53,9 +53,9 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
   + e.g. data driven testing via [spock](http://spockframework.github.io/spock/docs/)
 + Writing code using functional ways
   + e.g. one may write java or python code thinking of functional constructs
-  + e.g. java 5 itself has java.lang.function.* interfaces
+  + e.g. java has java.util.function package
   + this reduces the lines of code
-  + this in turn reduces the effort spent on unit test code
+  + this in turn reduces the effort spent on writing unit test code
   + remember less code implies less bugs
   + leads to unit tests without 'mocks' 
   + leads to running tests locally that are more closer to production environment.
@@ -66,7 +66,8 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
   + these requires a significant leap of faith
   + if we do manage this the benefits are plenty
   + we end up writing clear, concise, better intent, readable & testable code
-  + this approach defintely tackles bugs & issues in a practive manner
+  + source code as well as unit test code is not longer brittle
+  + this approach defintely tackles bugs & issues in a proactive manner
 
 ### Evolution of Test Automation:
 
