@@ -1,7 +1,9 @@
-### Automation
-- is a sub project under touchstone
-- is specifically meant for automation of various usecases
-- will call the cli of other sub projects of touchstone
-- will be a one-to-one mapping w.r.t specs
-  - automaton will be the code for the thoery that is specs
-- py based
+### Automaton
+- This is one the core projects under the umbrella touchstone
+- The project's design philosophy is based on:
+  + building a DSL over execution of commands
+  + commands are the ones that can be executed from a terminal
+    + e.g. cli based commands
+  + commands can be executed remotely
+    + e.g. ssh based commands
+  + rest based commands
