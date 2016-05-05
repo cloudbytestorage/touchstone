@@ -69,11 +69,9 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
   + source code as well as unit test code is not longer brittle
   + this approach defintely tackles bugs & issues in a proactive manner
 
-### Evolution of Test Automation:
-
-- It will be great if the test automation can eventually be used to inject faults & check if the system is resilient.
-- The fault injection test cases can be based out of the source code design as well as based on faults in the overall environment.
-- It is assumed that dedicated engineering thought process needs to go behind designing & building fault injection test cases.
+### What other innovations matter w.r.t automation ?
++ using automation tool to inject faults & verify the resiliency of the system.
+  + dedicated thought process needs to go into crafting the fault injection methods.
  
 ### Functional & Integration Test Automation
 
