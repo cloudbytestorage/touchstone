@@ -23,7 +23,13 @@
 ### What kind of Test Automation should we implement ?
 
 Let me quote an email from OpenStack forums: 
-"If a method is conceivably testable with unit tests (without over relying on mock), that is preferable. Failing that, functional tests are the way to go. The general idea is to test bottom up: Lots of unit tests, fewer functional tests, fewer API/integration/fullstack tests, ... it is difficult to test the agent with unit tests effectively, which is why I encourage developers to test via functional, mock-less tests, ..."
+>"If a method is conceivably testable with unit tests (without over relying on mock), that is preferable. 
+>Failing that, functional tests are the way to go. The general idea is to test bottom up: 
+>  Lots of unit tests, 
+>  fewer functional tests, 
+>  fewer API/integration/fullstack tests, ...
+>  it is difficult to test the agent with unit tests effectively, which is why I encourage 
+>developers to test via functional, mock-less tests, ..."
 
 - We developers have been grown up with the fact that unit test are the beginning & end to testing.
 - However, unit tests are definitely not enough. 
