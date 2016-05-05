@@ -8,12 +8,17 @@
 
 - It has been a desire to achieve test automation so that a developer can 
   - make continuous changes to the code base without impacting any existing feature.
-- It has also been felt that test automation should be simple enough for anyone to add/modify the test cases without spending too much of time.
-- Anyone implies a QA engineer, Business Analyst, apart from typical developers.
-- It will be ideal to run the test automation from one's laptop, thus avoiding the need for separate environments.
-- Here emphasis is given to the environment that is running the tests & not about the environment that is to be tested.
-- At the same time it is desired to roll out these test cases in a CI server for the entire build process. It will be pain to have separate test automation for build.
-- To summarize, it will be good to have test automation that can be easy to develop, easy to run, & easy to set up in different environments.
+- However, can this be simple to use ?
+  - Easy enough for a non-technical person to add/modify the test routines
+  - The resource need not spend hours to do so
+  - Resource may imply a QA engineer, Business Analyst, or an admin.
+- It will be great to run the test cases from one's laptop, 
+  - These would be fine tuned & later be moved to some build setups.
+  - Emphasis is given to the environment that is running the tests.
+- To summarize, it will be good to have test automation that can be 
+  - easy to develop, 
+  - easy to run, & 
+  - easy to set up in different environments.
  
 ### What kind of Test Automation should we implement ?
 
