@@ -1,7 +1,7 @@
 # TOUCHSTONE
 
 - Thoughts on testing practices
-- Ideas and implementation or reuse of best fit ways to automation
+- Ideas and implementation or reuse of best fit libraries for automation
 
 ### Need for a Test Automation
 
