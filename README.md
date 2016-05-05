@@ -1,7 +1,7 @@
 # TOUCHSTONE
 
 - Best fit ways on automation
-- This is used to implement part of the automation requirements for ElastiStor OS
+- This is used to implement parts of the automation requirements for ElastiStor OS
 - ElastiStor OS is a FreeBSD OS with REST APIs that manage JAIL & ZFS
 
 ### Need for a Test Automation
