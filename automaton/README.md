@@ -6,4 +6,4 @@
     + e.g. cli based commands
   + commands can be executed remotely
     + e.g. ssh based commands
-  + rest based commands
+  + REST based commands
