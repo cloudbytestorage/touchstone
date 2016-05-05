@@ -1,13 +1,13 @@
 # TOUCHSTONE
 
-- All possible way to test 'ElastiStor OS'
-- ElastiStor OS is a FreeBSD OS with REST APIs that understand JAIL & ZFS
-- The REST API part of ElastiStor is known as ElastiCenter
-- This will consist of sub-projects that have specific responsibilities.
+- Best fit ways on automation
+- This is used to implement part of the automation requirements for ElastiStor OS
+- ElastiStor OS is a FreeBSD OS with REST APIs that manage JAIL & ZFS
 
 ### Need for a Test Automation
 
-- It has been desired to achieve test automation so that a developer can make continuous changes to the code base without impacting any existing feature.
+- It has been a desire to achieve test automation so that a developer can 
+- make continuous changes to the code base without impacting any existing feature.
 - It has also been felt that test automation should be simple enough for anyone to add/modify the test cases without spending too much of time.
 - Anyone implies a QA engineer, Business Analyst, apart from typical developers.
 - It will be ideal to run the test automation from one's laptop, thus avoiding the need for separate environments.
@@ -82,11 +82,11 @@ Avid readers will definitely want a proof of this approach and I guess I have on
 - resto
 	- DSL wrapper over REST API
 - automaton
-	- TAP based automation that takes into account above
+    - TAP based automation that takes into account above
 - 3rd party libraries
-	- https://github.com/openzfs/openzfs/tree/master/usr/src/test
-	- openstack temptest suite
-	- vmware certification
+    - https://github.com/openzfs/openzfs/tree/master/usr/src/test
+    - openstack temptest suite
+    - vmware certification
 
 ### References
 
