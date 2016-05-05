@@ -1,8 +1,7 @@
 # TOUCHSTONE
 
-- Best fit ways on automation
-- This is used to implement parts of the automation requirements for ElastiStor OS
-- ElastiStor OS is a FreeBSD OS with REST APIs that manage JAIL & ZFS
+- Thoughts on testing practices
+- Ideas and implementation or reuse of best fit ways to automation
 
 ### Need for a Test Automation
 
@@ -23,42 +22,51 @@
 ### What kind of Test Automation should we implement ?
 
 Let me quote an email from OpenStack forums: 
->**"**If a method is conceivably testable with unit tests (without over relying on mock), that is preferable. 
->Failing that, functional tests are the way to go. The general idea is to test bottom up: 
+>**"** If a method is conceivably testable with unit tests (without over relying on mock), 
+>that is preferable. Failing that, functional tests are the way to go. 
+>The general idea is to test bottom up: 
 >+    Lots of unit tests,
 >+    fewer functional tests,
 >+    fewer API/integration/fullstack tests,
 >
->It is difficult to test the agent with unit tests effectively, which is why I encourage 
->developers to test via functional, mock-less tests, ...**"**
+>It is difficult to test the agent with unit tests effectively, 
+>which is why I encourage developers to test via functional, mock-less tests. **"**
 
-- We developers have been grown up with the fact that unit test are the beginning & end to testing.
-- However, unit tests are definitely not enough. 
-- Developers now have a wide variety of tools & mature devops ideas to implement various test strategies.
-- A management layer that typically has REST exposure should ideally be tested via REST clients. This should cater to ~70% of code coverage.
-- Coming back to unit tests, a test design should be in place that can run unit tests without use of 'mocks'.
-- Unit tests without 'mocks' make the test cases more closer to production environment.
-- Most of the time, this implies running the test cases against an actual environment & the test framework providing the additional features that can run the test cases & at the same time does not impact the production environment.
-- This is the area where the thin line of difference between functional & unit testing becomes blurred.
-- I would mark this as evolution from unit testing to functional testing.
-- In short, I would risk deviation from bottom up approach & opt for top down approach towards testing.
+This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 
-In my opinion, "there is no end to bottom up testing whereas we can see a clear picture, a clear goal & definitely a time-bound approach to top down testing".
+>**"**
+>I'm finding that most time spent in a TDD style development model is 
+>+ coding the unit tests. 
+>
+>There's typically lots of unit test code for little application code. 
+>Also there does seem to be some baggage when writing unit tests in java. 
+>This seems a great opportunity for using a concise & powerful dynamically typed language. 
+>**"**
 
-"Lots of functional tests, good amount of API/integration/fullstack tests and fewer but specific unit tests."
+#### Lets think about the issues faced to implement above strategies:
++ Brittle unit tests
++ No end on writing unit tests
 
-- Above statements are based on the simplicity of testing via current age tooling & the ever breaking unit tests due to constant churn in code bases. 
-- May I say we need to rewrite the entire unit tests if we change our libraries.
-
-And look I have got a friend (smile) who reciprocates my thought process much earlier than I got into programming as my day job.
-Excerpt from James Strachan's Weblog - Friday Aug 29, 2003
-Groovy - the birth of a new dynamic language for the Java platform
-"...
-I'm finding that most time spent in a TDD style development model is actually coding the unit tests. There's typically lots of unit test code for little application code. Also there does seem to be some baggage when writing unit tests in java. This seems a great opportunity for using a concise & powerful dynamically typed language. 
-..."
-
-Avid readers will definitely want a proof of this approach and I guess I have one. 
-- "During development of OpenStack cinder driver for CloudByte storage, I had to write unit test code whose LOC was more than that of the actual driver code. I guess I got a couple of bugs from this unit test code. However, most of critical/important bugs were found during the automated functional testing process (i.e. during run of OpenStack cinder tempest tests). The CI which runs these Tempest on every commit made to cinder project gets me few bugs occasionally. If I try to analyze the reason, I would say use of sublime text as my IDE, pep8 & flake8 linting tools helped me fix good amount of bugs while I was coding. To summarize, if we are able to use the right tools, we can write unit tests that matter & write exhaustive unit tests to get a 100% code coverage."
+#### Solutions the mitigate these issues:
++ Wide variety of tools make writing unit testing a breeze.
+  + e.g. property based testing via [scalacheck](http://www.scalacheck.org/)
+  + e.g. data driven testing via [spock](http://spockframework.github.io/spock/docs/)
++ Writing code using functional ways
+  + e.g. one may write java or python code thinking of functional constructs
+  + e.g. java 5 itself has java.lang.function.* interfaces
+  + this reduces the lines of code
+  + this in turn reduces the effort spent on unit test code
+  + remember less code implies less bugs
+  + leads to unit tests without 'mocks' 
+  + leads to running tests locally that are more closer to production environment.
++ Use of IDEs
++ Use of static tools for linting the code
+  + these will help us find out a lot of bugs during code itself
++ Use of functional languages
+  + these requires a significant leap of faith
+  + if we do manage this the benefits are plenty
+  + we end up writing clear, concise, better intent, readable & testable code
+  + this approach defintely tackles bugs & issues in a practive manner
 
 ### Evolution of Test Automation:
 
