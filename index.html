@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Touchstone by CloudByteStorages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Touchstone</h1>
+      <h2 class="project-tagline">Testing for Infrastructure w.r.t Storage</h2>
+      <a href="https://github.com/CloudByteStorages/touchstone" class="btn">View on GitHub</a>
+      <a href="https://github.com/CloudByteStorages/touchstone/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CloudByteStorages/touchstone/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="touchstone" class="anchor" href="#touchstone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TOUCHSTONE</h1>
+
+<ul>
+<li>All possible way to test 'ElastiStor OS'</li>
+<li>ElastiStor OS is a FreeBSD OS with REST APIs that understand JAIL &amp; ZFS</li>
+<li>The REST API part of ElastiStor is known as ElastiCenter</li>
+<li>This will consist of sub-projects that have specific responsibilities.</li>
+</ul>
+
+<h3>
+<a id="need-for-a-test-automation" class="anchor" href="#need-for-a-test-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Need for a Test Automation</h3>
+
+<ul>
+<li>It has been desired to achieve test automation so that a developer can make continuous changes to the code base without impacting any existing feature.</li>
+<li>It has also been felt that test automation should be simple enough for anyone to add/modify the test cases without spending too much of time.</li>
+<li>Anyone implies a QA engineer, Business Analyst, apart from typical developers.</li>
+<li>It will be ideal to run the test automation from one's laptop, thus avoiding the need for separate environments.</li>
+<li>Here emphasis is given to the environment that is running the tests &amp; not about the environment that is to be tested.</li>
+<li>At the same time it is desired to roll out these test cases in a CI server for the entire build process. It will be pain to have separate test automation for build.</li>
+<li>To summarize, it will be good to have test automation that can be easy to develop, easy to run, &amp; easy to set up in different environments.</li>
+</ul>
+
+<h3>
+<a id="what-kind-of-test-automation-should-we-implement-" class="anchor" href="#what-kind-of-test-automation-should-we-implement-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What kind of Test Automation should we implement ?</h3>
+
+<p>Let me quote an email from OpenStack forums: 
+"If a method is conceivably testable with unit tests (without over relying on mock), that is preferable. Failing that, functional tests are the way to go. The general idea is to test bottom up: Lots of unit tests, fewer functional tests, fewer API/integration/fullstack tests, ... it is difficult to test the agent with unit tests effectively, which is why I encourage developers to test via functional, mock-less tests, ..."</p>
+
+<ul>
+<li>We developers have been grown up with the fact that unit test are the beginning &amp; end to testing.</li>
+<li>However, unit tests are definitely not enough. </li>
+<li>Developers now have a wide variety of tools &amp; mature devops ideas to implement various test strategies.</li>
+<li>A management layer that typically has REST exposure should ideally be tested via REST clients. This should cater to ~70% of code coverage.</li>
+<li>Coming back to unit tests, a test design should be in place that can run unit tests without use of 'mocks'.</li>
+<li>Unit tests without 'mocks' make the test cases more closer to production environment.</li>
+<li>Most of the time, this implies running the test cases against an actual environment &amp; the test framework providing the additional features that can run the test cases &amp; at the same time does not impact the production environment.</li>
+<li>This is the area where the thin line of difference between functional &amp; unit testing becomes blurred.</li>
+<li>I would mark this as evolution from unit testing to functional testing.</li>
+<li>In short, I would risk deviation from bottom up approach &amp; opt for top down approach towards testing.</li>
+</ul>
+
+<p>In my opinion, "there is no end to bottom up testing whereas we can see a clear picture, a clear goal &amp; definitely a time-bound approach to top down testing".</p>
+
+<p>"Lots of functional tests, good amount of API/integration/fullstack tests and fewer but specific unit tests."</p>
+
+<ul>
+<li>Above statements are based on the simplicity of testing via current age tooling &amp; the ever breaking unit tests due to constant churn in code bases. </li>
+<li>May I say we need to rewrite the entire unit tests if we change our libraries.</li>
+</ul>
+
+<p>And look I have got a friend (smile) who reciprocates my thought process much earlier than I got into programming as my day job.
+Excerpt from James Strachan's Weblog - Friday Aug 29, 2003
+Groovy - the birth of a new dynamic language for the Java platform
+"...
+I'm finding that most time spent in a TDD style development model is actually coding the unit tests. There's typically lots of unit test code for little application code. Also there does seem to be some baggage when writing unit tests in java. This seems a great opportunity for using a concise &amp; powerful dynamically typed language. 
+..."</p>
+
+<p>Avid readers will definitely want a proof of this approach and I guess I have one. </p>
+
+<ul>
+<li>"During development of OpenStack cinder driver for CloudByte storage, I had to write unit test code whose LOC was more than that of the actual driver code. I guess I got a couple of bugs from this unit test code. However, most of critical/important bugs were found during the automated functional testing process (i.e. during run of OpenStack cinder tempest tests). The CI which runs these Tempest on every commit made to cinder project gets me few bugs occasionally. If I try to analyze the reason, I would say use of sublime text as my IDE, pep8 &amp; flake8 linting tools helped me fix good amount of bugs while I was coding. To summarize, if we are able to use the right tools, we can write unit tests that matter &amp; write exhaustive unit tests to get a 100% code coverage."</li>
+</ul>
+
+<h3>
+<a id="evolution-of-test-automation" class="anchor" href="#evolution-of-test-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Evolution of Test Automation:</h3>
+
+<ul>
+<li>It will be great if the test automation can eventually be used to inject faults &amp; check if the system is resilient.</li>
+<li>The fault injection test cases can be based out of the source code design as well as based on faults in the overall environment.</li>
+<li>It is assumed that dedicated engineering thought process needs to go behind designing &amp; building fault injection test cases.</li>
+</ul>
+
+<h3>
+<a id="functional--integration-test-automation" class="anchor" href="#functional--integration-test-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Functional &amp; Integration Test Automation</h3>
+
+<ul>
+<li>Since a typical management layer is exposed via the REST layer, we can get code coverage of ~70% by utilizing the REST layer.</li>
+<li>Given the 80:20 rule, and above justification, we should be spending most of our efforts into functional testing.</li>
+<li>Hence, we need to think about various teams making a contribution towards this automated functional testing.</li>
+<li>If the REST uses JSON, we might get tempted towards use of JavaScript libraries.</li>
+<li>However, every programming language has made use of JSON a breeze.</li>
+<li>We should be looking into libraries or languages that are less verbose &amp; are more DSL (Domain Specific Language) friendly.</li>
+<li>Not only the Developer but also the Business Analyst, Quality Analyst, Infra Engineer, Support Engineer etc. should be able to create a automated functional test case with ease.</li>
+</ul>
+
+<h3>
+<a id="fault-injection-testing--unit-testing-the-elasticenter" class="anchor" href="#fault-injection-testing--unit-testing-the-elasticenter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fault Injection Testing &amp; Unit Testing the ElastiCenter</h3>
+
+<ul>
+<li>While testing the storage via REST layer seems to solve 70% of use cases, we need to think of an alternative design that can test the rest 30%</li>
+<li>Spock is assumed to meet the fault injection requirements w.r.t ElastiCenter that is Java based.</li>
+<li>Below are some of things that we need to try using Spock in order to inject faults:</li>
+<li>Change the behavior at runtime</li>
+<li>Run the Spock specs programmatically against any running EC environment.</li>
+<li>Ability to run specific Spock specs</li>
+<li>Ability to build jars that contains the Spock specs. These jars will be deployed in a running EC &amp; test cases would be invoked from a CLI.</li>
+<li>One is not limited to use Spock. One may think of using various Mock libraries to meet one's goal.</li>
+</ul>
+
+<h3>
+<a id="touchstons-sub-projects" class="anchor" href="#touchstons-sub-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Touchston's Sub-Projects</h3>
+
+<ul>
+<li>touchstone
+
+<ul>
+<li>DSL wrapper over CLI</li>
+</ul>
+</li>
+<li>resto
+
+<ul>
+<li>DSL wrapper over REST API</li>
+</ul>
+</li>
+<li>automaton
+
+<ul>
+<li>TAP based automation that takes into account above</li>
+</ul>
+</li>
+<li>3rd party libraries
+
+<ul>
+<li><a href="https://github.com/openzfs/openzfs/tree/master/usr/src/test">https://github.com/openzfs/openzfs/tree/master/usr/src/test</a></li>
+<li>openstack temptest suite</li>
+<li>vmware certification</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="references" class="anchor" href="#references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+
+<ul>
+<li><a href="https://github.com/vlucas/frisby">https://github.com/vlucas/frisby</a></li>
+<li><a href="https://github.com/jeffbski/bench-rest">https://github.com/jeffbski/bench-rest</a></li>
+<li><a href="https://dzone.com/articles/you-cant-test-all-the-things-api-iot-roi-tbd?utm_content=bufferbf217&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">https://dzone.com/articles/you-cant-test-all-the-things-api-iot-roi-tbd?utm_content=bufferbf217&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></li>
+<li><a href="https://wiki.freebsd.org/SummerOfCodeIdeas#TEST-o-steron_for_FreeBSD_.28node.js.2FLua.29">https://wiki.freebsd.org/SummerOfCodeIdeas#TEST-o-steron_for_FreeBSD_.28node.js.2FLua.29</a></li>
+<li><a href="http://www.lingua-systems.com/unit-testing/">http://www.lingua-systems.com/unit-testing/</a></li>
+<li><a href="https://github.com/spockframework/spock">https://github.com/spockframework/spock</a></li>
+<li><a href="https://github.com/openzfs/openzfs/tree/master/usr/src/test">https://github.com/openzfs/openzfs/tree/master/usr/src/test</a></li>
+<li><a href="http://www.slideshare.net/araujobsd/functional-and-scale-performance-tests-using-zopkio">http://www.slideshare.net/araujobsd/functional-and-scale-performance-tests-using-zopkio</a></li>
+<li><a href="https://github.com/linkedin/Zopkio">https://github.com/linkedin/Zopkio</a></li>
+<li><a href="https://github.com/zfsonlinux/zfs-auto-snapshot/blob/master/src/zfs-auto-snapshot.sh">https://github.com/zfsonlinux/zfs-auto-snapshot/blob/master/src/zfs-auto-snapshot.sh</a></li>
+</ul>
+
+<h5>
+<a id="shell-scripting-using-groovy" class="anchor" href="#shell-scripting-using-groovy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shell Scripting Using Groovy</h5>
+
+<ul>
+<li>#!/usr/bin/env groovy</li>
+<li>Say bye to cumbersome bash scripts (smile)</li>
+<li><a href="https://github.com/aestasit/sshoogr">https://github.com/aestasit/sshoogr</a></li>
+</ul>
+
+<h5>
+<a id="modular--filefolder-structure--coding-standards-for-shell-scripts" class="anchor" href="#modular--filefolder-structure--coding-standards-for-shell-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modular &amp; file/folder Structure &amp; Coding Standards for Shell Scripts</h5>
+
+<ul>
+<li><a href="https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats">https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats</a></li>
+<li><a href="https://github.com/aaronroyer/shy/blob/master/test/shy.bats">https://github.com/aaronroyer/shy/blob/master/test/shy.bats</a></li>
+<li><a href="https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh">https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh</a></li>
+<li><a href="http://www.doublecloud.org/2015/05/vmware-esxi-esxcli-command-a-quick-tutorial/">http://www.doublecloud.org/2015/05/vmware-esxi-esxcli-command-a-quick-tutorial/</a></li>
+</ul>
+
+<h5>
+<a id="management-tool-for-shell" class="anchor" href="#management-tool-for-shell" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Management Tool for Shell</h5>
+
+<ul>
+<li>
+<a href="https://github.com/aaronroyer/shy">https://github.com/aaronroyer/shy</a> </li>
+<li><a href="https://blog.engineyard.com/2014/bats-test-command-line-tools">https://blog.engineyard.com/2014/bats-test-command-line-tools</a></li>
+<li><a href="https://github.com/sstephenson/bats">https://github.com/sstephenson/bats</a></li>
+<li><a href="http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay">http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay</a></li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/CloudByteStorages/touchstone">Touchstone</a> is maintained by <a href="https://github.com/CloudByteStorages">CloudByteStorages</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
