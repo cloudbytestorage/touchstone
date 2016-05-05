@@ -7,7 +7,7 @@
 ### Need for a Test Automation
 
 - It has been a desire to achieve test automation so that a developer can 
-- make continuous changes to the code base without impacting any existing feature.
+  - make continuous changes to the code base without impacting any existing feature.
 - It has also been felt that test automation should be simple enough for anyone to add/modify the test cases without spending too much of time.
 - Anyone implies a QA engineer, Business Analyst, apart from typical developers.
 - It will be ideal to run the test automation from one's laptop, thus avoiding the need for separate environments.
