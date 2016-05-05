@@ -47,7 +47,7 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 + Brittle unit tests
 + No end to writing unit tests
 
-#### Solutions the mitigate these issues:
+#### Solutions to mitigate these issues:
 + Wide variety of tools make writing unit testing a breeze.
   + e.g. property based testing via [scalacheck](http://www.scalacheck.org/)
   + e.g. data driven testing via [spock](http://spockframework.github.io/spock/docs/)
@@ -72,70 +72,11 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 ### What other innovations matter w.r.t automation ?
 + using automation tool to inject faults & verify the resiliency of the system.
   + dedicated thought process needs to go into crafting the fault injection methods.
- 
-### Functional & Integration Test Automation
 
-- Since a typical management layer is exposed via the REST layer, we can get code coverage of ~70% by utilizing the REST layer.
-- Given the 80:20 rule, and above justification, we should be spending most of our efforts into functional testing.
-- Hence, we need to think about various teams making a contribution towards this automated functional testing.
-- If the REST uses JSON, we might get tempted towards use of JavaScript libraries.
-- However, every programming language has made use of JSON a breeze.
-- We should be looking into libraries or languages that are less verbose & are more DSL (Domain Specific Language) friendly.
-- Not only the Developer but also the Business Analyst, Quality Analyst, Infra Engineer, Support Engineer etc. should be able to create a automated functional test case with ease.
+### Related Links
 
- 
-### Fault Injection Testing & Unit Testing the ElastiCenter
-
-- While testing the storage via REST layer seems to solve 70% of use cases, we need to think of an alternative design that can test the rest 30%
-- Spock is assumed to meet the fault injection requirements w.r.t ElastiCenter that is Java based.
-- Below are some of things that we need to try using Spock in order to inject faults:
-- Change the behavior at runtime
-- Run the Spock specs programmatically against any running EC environment.
-- Ability to run specific Spock specs
-- Ability to build jars that contains the Spock specs. These jars will be deployed in a running EC & test cases would be invoked from a CLI.
-- One is not limited to use Spock. One may think of using various Mock libraries to meet one's goal.
-
-### Touchston's Sub-Projects
-- touchstone
-	- DSL wrapper over CLI
-- resto
-	- DSL wrapper over REST API
-- automaton
-    - TAP based automation that takes into account above
-- 3rd party libraries
-    - https://github.com/openzfs/openzfs/tree/master/usr/src/test
-    - openstack temptest suite
-    - vmware certification
-
-### References
-
-- https://github.com/vlucas/frisby
-- https://github.com/jeffbski/bench-rest
-- https://dzone.com/articles/you-cant-test-all-the-things-api-iot-roi-tbd?utm_content=bufferbf217&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
-- https://wiki.freebsd.org/SummerOfCodeIdeas#TEST-o-steron_for_FreeBSD_.28node.js.2FLua.29
-- http://www.lingua-systems.com/unit-testing/
-- https://github.com/spockframework/spock
-- https://github.com/openzfs/openzfs/tree/master/usr/src/test
-- http://www.slideshare.net/araujobsd/functional-and-scale-performance-tests-using-zopkio
-- https://github.com/linkedin/Zopkio
-- https://github.com/zfsonlinux/zfs-auto-snapshot/blob/master/src/zfs-auto-snapshot.sh
-
-##### Shell Scripting Using Groovy
-
-- #!/usr/bin/env groovy
-- Say bye to cumbersome bash scripts (smile)
-- https://github.com/aestasit/sshoogr
-
-##### Modular & file/folder Structure & Coding Standards for Shell Scripts
-
-- https://github.com/technopagan/adept-jpg-compressor/blob/master/unittests/tests_adept.bats
-- https://github.com/aaronroyer/shy/blob/master/test/shy.bats
-- https://github.com/technopagan/adept-jpg-compressor/blob/master/adept.sh
-- http://www.doublecloud.org/2015/05/vmware-esxi-esxcli-command-a-quick-tutorial/
-
-##### Management Tool for Shell
-
-- https://github.com/aaronroyer/shy 
-- https://blog.engineyard.com/2014/bats-test-command-line-tools
-- https://github.com/sstephenson/bats
-- http://stackoverflow.com/questions/687948/timeout-a-command-in-bash-without-unnecessary-delay
+- [Rest API Testing](https://github.com/vlucas/frisby)
+- [Rest API Bench Testing](https://github.com/jeffbski/bench-rest)
+- [You cannot test all the things](https://dzone.com/articles/you-cant-test-all-the-things-api-iot-roi-tbd?utm_content=bufferbf217&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+- [Unit Testing](http://www.lingua-systems.com/unit-testing/)
+- [Spock](https://github.com/spockframework/spock)
