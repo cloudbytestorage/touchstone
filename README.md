@@ -41,7 +41,7 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 + Brittle unit tests
 + No end to writing unit tests
 
-#### Lets talk about other forms of testing
+#### Below items poses very generic queries on other forms of testing
 - Here too, we have lots of tools/libraries to choose from.
 - However, we should filter them through below checklists:
     - Are they simple enough to use ?
@@ -85,7 +85,7 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
   
 
 ### What other innovations matter w.r.t automation ?
-+ using automation tool to inject faults & verify the resiliency of the system.
++ tool to inject faults & verify the resiliency of the system.
   + dedicated thought process needs to go into crafting the fault injection methods.
 
 ### Related Links
