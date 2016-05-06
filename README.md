@@ -4,23 +4,17 @@
 - Ideas and implementation or reuse of best fit libraries for automation
 
 ### Need for a Test Automation
-
 - It has been a desire to achieve test automation so that a developer can 
-  - make continuous changes to the code base without impacting any existing feature.
-- However, can this be simple to use ?
-  - Easy enough for a non-technical person to add/modify the test routines
-  - The resource need not spend hours to do so
-  - Resource may imply a QA engineer, Business Analyst, or an admin.
-- It will be great to run the test cases from one's laptop, 
-  - These would be fine tuned & later be moved to some build setups.
-  - Emphasis is given to the environment that is running the tests.
-- To summarize, it will be good to have test automation that can be 
-  - easy to develop, 
-  - easy to run, & 
-  - easy to set up in different environments.
+  - make as well as verify her continuous changes to the code base
+  - without worrying about any regressions
+- We have unit tests to satify just that. Don't we ?
+  - What about the areas that unit tests can not cover ?
+- So we need some form of automation:
+  - that can remove the repetitive (read manual) tasks
+  - fasten the overall delivery process
  
 ### What kind of Test Automation should we implement ?
-
+#### We shall start with unit tests
 Let me quote an email from OpenStack forums: 
 >**"** If a method is conceivably testable with unit tests (without over relying on mock), 
 >that is preferable. Failing that, functional tests are the way to go. 
@@ -43,11 +37,29 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
 >This seems a great opportunity for using a concise & powerful dynamically typed language. 
 >**"**
 
-#### Lets think about the issues faced to implement above strategies:
+#### For a moment, lets think about the issues implementing unit tests:
 + Brittle unit tests
 + No end to writing unit tests
 
-#### Solutions to mitigate these issues:
+#### Lets talk about other forms of testing
+- Here too, we have lots of tools/libraries to choose from.
+- However, we should filter them through below checklists:
+    - Are they simple enough to use ?
+    - Easy enough for a non-technical person to add/modify the test routines
+    - Resource need not spend hours to do so
+    - Resource may imply a QA engineer, Business Analyst, or an Admin.
+    - Can they be run or atleast triggered from one's laptop ?
+    - The tools & corresponding test cases would be fine tuned 
+      - & later be moved to some build setups.
+- To summarize, it will be good to have test tool(s) that can be 
+  - easy to plugin to existing tools
+  - quick to develop, 
+  - easy to run,
+  - exposed in form of some DSLs/builders
+  - easy to set up in different environments.
+  - i.e. a unified testing layer that can accomodate all the above
+
+#### Solutions to mitigate issues that we talked about:
 + Wide variety of tools make writing unit testing a breeze.
   + e.g. property based testing via [scalacheck](http://www.scalacheck.org/)
   + e.g. data driven testing via [spock](http://spockframework.github.io/spock/docs/)
@@ -68,6 +80,9 @@ This is another quote from James Strachan's Weblog - Friday Aug 29, 2003
   + we end up writing clear, concise, better intent, readable & testable code
   + source code as well as unit test code is not longer brittle
   + this approach defintely tackles bugs & issues in a proactive manner
++ With these in mind we shall venture out:
+  + to design & build or reuse some library that creates the Unified Automation Platform
+  
 
 ### What other innovations matter w.r.t automation ?
 + using automation tool to inject faults & verify the resiliency of the system.
