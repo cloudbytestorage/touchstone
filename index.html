@@ -34,36 +34,30 @@
 <li>It has been a desire to achieve test automation so that a developer can 
 
 <ul>
-<li>make continuous changes to the code base without impacting any existing feature.</li>
+<li>make as well as verify her continuous changes to the code base</li>
+<li>without worrying about any regressions</li>
 </ul>
 </li>
-<li>However, can this be simple to use ?
+<li>We have unit tests to satify just that. Don't we ?
 
 <ul>
-<li>Easy enough for a non-technical person to add/modify the test routines</li>
-<li>The resource need not spend hours to do so</li>
-<li>Resource may imply a QA engineer, Business Analyst, or an admin.</li>
+<li>What about the areas that unit tests can not cover ?</li>
 </ul>
 </li>
-<li>It will be great to run the test cases from one's laptop, 
+<li>So we need some form of automation:
 
 <ul>
-<li>These would be fine tuned &amp; later be moved to some build setups.</li>
-<li>Emphasis is given to the environment that is running the tests.</li>
-</ul>
-</li>
-<li>To summarize, it will be good to have test automation that can be 
-
-<ul>
-<li>easy to develop, </li>
-<li>easy to run, &amp; </li>
-<li>easy to set up in different environments.</li>
+<li>that can remove the repetitive (read manual) tasks</li>
+<li>fasten the overall delivery process</li>
 </ul>
 </li>
 </ul>
 
 <h3>
 <a id="what-kind-of-test-automation-should-we-implement-" class="anchor" href="#what-kind-of-test-automation-should-we-implement-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What kind of Test Automation should we implement ?</h3>
+
+<h4>
+<a id="we-shall-start-with-unit-tests" class="anchor" href="#we-shall-start-with-unit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>We shall start with unit tests</h4>
 
 <p>Let me quote an email from OpenStack forums: </p>
 
@@ -99,7 +93,7 @@ This seems a great opportunity for using a concise &amp; powerful dynamically ty
 </blockquote>
 
 <h4>
-<a id="lets-think-about-the-issues-faced-to-implement-above-strategies" class="anchor" href="#lets-think-about-the-issues-faced-to-implement-above-strategies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Lets think about the issues faced to implement above strategies:</h4>
+<a id="for-a-moment-lets-think-about-the-issues-implementing-unit-tests" class="anchor" href="#for-a-moment-lets-think-about-the-issues-implementing-unit-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>For a moment, lets think about the issues implementing unit tests:</h4>
 
 <ul>
 <li>Brittle unit tests</li>
@@ -107,7 +101,41 @@ This seems a great opportunity for using a concise &amp; powerful dynamically ty
 </ul>
 
 <h4>
-<a id="solutions-to-mitigate-these-issues" class="anchor" href="#solutions-to-mitigate-these-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solutions to mitigate these issues:</h4>
+<a id="below-items-poses-very-generic-queries-on-other-forms-of-testing" class="anchor" href="#below-items-poses-very-generic-queries-on-other-forms-of-testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Below items poses very generic queries on other forms of testing</h4>
+
+<ul>
+<li>Here too, we have lots of tools/libraries to choose from.</li>
+<li>However, we should filter them through below checklists:
+
+<ul>
+<li>Are they simple enough to use ?</li>
+<li>Easy enough for a non-technical person to add/modify the test routines</li>
+<li>Resource need not spend hours to do so</li>
+<li>Resource may imply a QA engineer, Business Analyst, or an Admin.</li>
+<li>Can they be run or atleast triggered from one's laptop ?</li>
+<li>The tools &amp; corresponding test cases would be fine tuned 
+
+<ul>
+<li>&amp; later be moved to some build setups.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To summarize, it will be good to have test tool(s) that can be 
+
+<ul>
+<li>easy to plugin to existing tools</li>
+<li>quick to develop, </li>
+<li>easy to run,</li>
+<li>exposed in form of some DSLs/builders</li>
+<li>easy to set up in different environments.</li>
+<li>i.e. a unified testing layer that can accomodate all the above</li>
+</ul>
+</li>
+</ul>
+
+<h4>
+<a id="solutions-to-mitigate-issues-that-we-talked-about" class="anchor" href="#solutions-to-mitigate-issues-that-we-talked-about" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solutions to mitigate issues that we talked about:</h4>
 
 <ul>
 <li>Wide variety of tools make writing unit testing a breeze.
@@ -148,13 +176,19 @@ This seems a great opportunity for using a concise &amp; powerful dynamically ty
 <li>this approach defintely tackles bugs &amp; issues in a proactive manner</li>
 </ul>
 </li>
+<li>With these in mind we shall venture out:
+
+<ul>
+<li>to design &amp; build or reuse some library that creates the Unified Automation Platform</li>
+</ul>
+</li>
 </ul>
 
 <h3>
 <a id="what-other-innovations-matter-wrt-automation-" class="anchor" href="#what-other-innovations-matter-wrt-automation-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What other innovations matter w.r.t automation ?</h3>
 
 <ul>
-<li>using automation tool to inject faults &amp; verify the resiliency of the system.
+<li>tool to inject faults &amp; verify the resiliency of the system.
 
 <ul>
 <li>dedicated thought process needs to go into crafting the fault injection methods.</li>
